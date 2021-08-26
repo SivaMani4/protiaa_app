@@ -368,7 +368,7 @@ class CustomAppBar extends StatelessWidget {
                     padding: const EdgeInsets.all(18.0),
                     child: Container(
                       width: width / 3,
-                      height: height / 9,
+                      height: height / 16,
                       child: Image.asset(
                         'assets/images/driblogo1.png',
                       ),
