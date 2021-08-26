@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:protiaa_app/constants/colors.dart';
 
 Widget appBarTitle(String title) {
   return Padding(
@@ -24,10 +26,11 @@ Widget searchTextField({String? hintText}) {
             ),
           ),
           hintText: hintText,
-          hintStyle: TextStyle(
-              color: Color.fromRGBO(188, 188, 208, 1), fontSize: 22.0),
+          hintStyle: TextStyle(color: kSearchTextColor, fontSize: 22.0),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Color.fromRGBO(114, 125, 137, 1)),
+            borderSide: BorderSide(
+              color: kSearchBorderColor,
+            ),
             borderRadius: BorderRadius.all(
               Radius.circular(25.0),
             ),
@@ -48,14 +51,16 @@ class DribbleCard extends StatelessWidget {
       padding: const EdgeInsets.all(18.0),
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(50.0)),
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.center,
-                colors: [
-                  Color.fromRGBO(254, 121, 116, 1),
-                  Color.fromRGBO(208, 45, 106, 1)
-                ])),
+          borderRadius: BorderRadius.all(Radius.circular(50.0)),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.center,
+            colors: [
+              kDribbleCardGradientColor1,
+              kDribbleCardGradientColor2,
+            ],
+          ),
+        ),
         child: Stack(
           children: [
             Positioned(
@@ -103,7 +108,7 @@ class DribbleCard extends StatelessWidget {
                       '@afzalali15',
                       style: TextStyle(
                           color: Colors.white38,
-                          fontSize: 12.0,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.w800),
                     ),
                     SizedBox(
@@ -118,7 +123,7 @@ class DribbleCard extends StatelessWidget {
                           ),
                           border: Border.all(color: Colors.white60)),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -171,14 +176,16 @@ class BehanceCard extends StatelessWidget {
       padding: const EdgeInsets.all(18.0),
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(40.0)),
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.center,
-                colors: [
-                  Color.fromRGBO(51, 193, 254, 1),
-                  Color.fromRGBO(28, 98, 220, 1)
-                ])),
+          borderRadius: BorderRadius.all(Radius.circular(40.0)),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.center,
+            colors: [
+              kBehanceCardGradientColor1,
+              kBehanceCardGradientColor2,
+            ],
+          ),
+        ),
         child: Stack(
           children: [
             Positioned(
@@ -235,7 +242,7 @@ class BehanceCard extends StatelessWidget {
                       '@afzalali15',
                       style: TextStyle(
                           color: Colors.white38,
-                          fontSize: 12.0,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.w800),
                     ),
                     SizedBox(
@@ -250,7 +257,7 @@ class BehanceCard extends StatelessWidget {
                           ),
                           border: Border.all(color: Colors.white60)),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -301,30 +308,50 @@ class CustomAppBar extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(50.0),
-            bottomRight: Radius.circular(50.0),
-          ),
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.center,
-              colors: [
-                Color.fromRGBO(254, 121, 116, 1),
-                Color.fromRGBO(208, 45, 106, 1)
-              ])),
+        boxShadow: [
+          BoxShadow(color: Colors.black, spreadRadius: 4.0, blurRadius: 20.0),
+        ],
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(50.0),
+          bottomRight: Radius.circular(50.0),
+        ),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.center,
+          colors: [
+            kAppBarGradientColor1,
+            kAppBarGradientColor2,
+          ],
+        ),
+      ),
       child: Stack(
         children: [
           Positioned(
-            right: 50.0,
-            top: 60.0,
+            top: 50.0,
+            // right: 1,
+            left: 15.0,
+            child: GestureDetector(
+              onTap: () {
+                Get.offNamed('/HomePage');
+              },
+              child: Container(
+                width: width / 8.5,
+                height: height / 10,
+                child: Image.asset('assets/images/back.png'),
+              ),
+            ),
+          ),
+          Positioned(
+            right: 15.0,
+            top: 50.0,
             child: Text(
               '#1',
               style: TextStyle(
                   fontFamily: 'arial',
                   color: Colors.black12.withOpacity(0.1),
-                  fontSize: 100.0,
+                  fontSize: 75.0,
                   fontWeight: FontWeight.bold),
-              textScaleFactor: 1.1,
+              textScaleFactor: 1.7,
             ),
           ),
           Positioned(
@@ -355,11 +382,14 @@ class CustomAppBar extends StatelessWidget {
                         fontSize: 30.0,
                         fontWeight: FontWeight.w800),
                   ),
-                  Divider(
-                    color: Colors.white,
-                    thickness: 0.6,
-                    endIndent: 80.0,
-                    indent: 80.0,
+                  Opacity(
+                    opacity: 0.5,
+                    child: Divider(
+                      color: Colors.white,
+                      thickness: 0.6,
+                      endIndent: 80.0,
+                      indent: 80.0,
+                    ),
                   ),
                   SizedBox(
                     height: 15,
@@ -395,7 +425,7 @@ class CustomAppBar extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                '623K',
+                                '623k',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w800,
@@ -413,7 +443,7 @@ class CustomAppBar extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                '129K',
+                                '129k',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w800,
@@ -438,4 +468,19 @@ class CustomAppBar extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget floatingActionWidget() {
+  return FloatingActionButton(
+    elevation: 10.0,
+    highlightElevation: 10.0,
+    focusElevation: 10.0,
+    backgroundColor: kFloatingBGColor,
+    onPressed: () {},
+    child: Icon(
+      Icons.add,
+      color: Colors.white,
+      size: 40.0,
+    ),
+  );
 }

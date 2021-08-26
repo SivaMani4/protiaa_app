@@ -20,6 +20,10 @@ class MyApp extends StatelessWidget {
           page: () => MyApp(),
         ),
         GetPage(
+          name: '/HomePage',
+          page: () => HomePage(),
+        ),
+        GetPage(
           name: '/PostDetailsPage',
           page: () => PostDetailsPage(),
         ),

@@ -20,13 +20,13 @@ class PostDetailsPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(18.0),
           child: ListView.builder(
             itemCount: controller.dribbbleDetails.length,
             itemBuilder: (context, index) {
               return ListTile(
                 leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(10.0),
                   child: Image.asset(
                       controller.dribbbleDetails[index].leadingImageAsset),
                 ),
@@ -37,7 +37,7 @@ class PostDetailsPage extends StatelessWidget {
                 subtitle: Text(
                   controller.dribbbleDetails[index].subTitle,
                   style: TextStyle(
-                    color: Color.fromRGBO(90, 93, 114, 1),
+                    color: Colors.white.withOpacity(0.6),
                   ),
                 ),
                 trailing: Padding(
@@ -50,19 +50,7 @@ class PostDetailsPage extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        elevation: 10.0,
-        highlightElevation: 10.0,
-        focusElevation: 10.0,
-        focusColor: Color.fromRGBO(208, 45, 106, 1),
-        backgroundColor: Color.fromRGBO(208, 45, 106, 1),
-        onPressed: () {},
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-          size: 40.0,
-        ),
-      ),
+      floatingActionButton: floatingActionWidget(),
     );
   }
 }
