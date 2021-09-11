@@ -342,20 +342,20 @@ class CustomAppBar extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 15.0,
-            top: 50.0,
+            right: 35.0,
+            top: 30.0,
             child: Text(
               '#1',
               style: TextStyle(
                   fontFamily: 'arial',
                   color: Colors.black12.withOpacity(0.1),
-                  fontSize: 75.0,
+                  fontSize: 85.0,
                   fontWeight: FontWeight.bold),
-              textScaleFactor: 1.7,
+              textScaleFactor: 1.4,
             ),
           ),
           Positioned(
-            top: 60.0,
+            top: 40.0,
             bottom: 0.0,
             right: 5.0,
             left: 5.0,
@@ -368,7 +368,7 @@ class CustomAppBar extends StatelessWidget {
                     padding: const EdgeInsets.all(18.0),
                     child: Container(
                       width: width / 3,
-                      height: height / 16,
+                      height: height / 14,
                       child: Image.asset(
                         'assets/images/driblogo1.png',
                       ),
